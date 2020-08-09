@@ -1,8 +1,8 @@
 export const tableHeaderData = [
-  "Id",
-  "Name",
-  "Species",
-  "Gender",
-  "Homeworld",
-  "Actions",
+  { data: "Id", param: "id" },
+  { data: "Name", param: "name" },
+  { data: "Species", param: "species" },
+  { data: "Gender", param: "gender" },
+  { data: "Homeworld", param: "homeworld" },
+  { data: "Actions" },
 ];

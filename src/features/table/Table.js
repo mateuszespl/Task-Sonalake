@@ -1,42 +1,47 @@
 import React from "react";
 
-import { TableRow } from "./TableRow";
-import { Pagination } from "./Pagination";
-import { tableHeaderData } from "./constants";
+import { Pagination } from "../pagination/Pagination";
+import { TableHeader } from "./TableHeader";
+import { TableBody } from "./TableBody";
 
 export const Table = ({
   characterData,
   setCurrentPage,
   currentPage,
   searchedData,
+  searchValue,
+  setCharacterData,
 }) => {
-  const { data: characterDataArray, lastPage, firstPage } = characterData;
+  const {
+    data: characterDataArray, // actual character array
+    lastPage, // prop for pagination
+    firstPage, // prop for pagination
+    numberOfPages, //prop for pagination
+  } = characterData;
   return (
-    <>
+    <section data-testid="tableSection" className="table">
       <table className="table table-bordered table-hover">
-        <thead className="thead-light">
-          <tr>
-            {tableHeaderData.map((data) => (
-              <th scope="col" key={data}>
-                {data}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {(searchedData.length > 0 ? searchedData : characterDataArray).map(
-            (character, id) => (
-              <TableRow key={id} character={character} />
-            )
-          )}
-        </tbody>
+        <TableHeader
+          setCharacterData={setCharacterData}
+          characterDataArray={characterDataArray}
+          currentPage={currentPage}
+        />
+        <TableBody
+          currentPage={currentPage}
+          setCharacterData={setCharacterData}
+          searchValue={searchValue}
+          searchedData={searchedData}
+          characterDataArray={characterDataArray}
+        />
       </table>
       <Pagination
+        numberOfPages={numberOfPages}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         lastPage={lastPage}
         firstPage={firstPage}
+        disabled={searchValue.length > 0}
       />
-    </>
+    </section>
   );
 };

@@ -1,15 +1,32 @@
 import React from "react";
 
-export const TableRowActions = () => {
+import { deleteCharacter, fetchCharacters } from "../../api/helpers";
+import { Button } from "./../../components/Button";
+
+export const TableRowActions = ({ id, setCharacterData, currentPage }) => {
   return (
-    <td>
-      <div className="btn-group btn-group-sm" role="group" aria-label="Actions">
-        <button type="button" className="btn btn-secondary">
-          <i className="fa fa-pencil" aria-hidden="true" /> Edit
-        </button>
-        <button type="button" className="btn btn-danger">
-          <i className="fa fa-trash-o" aria-hidden="true" /> Remove
-        </button>
+    <td data-testid="tableRowActions">
+      <div
+        className="btn-group btn-group-sm d-flex justify-content-center align-items-center"
+        role="group"
+        aria-label="Actions"
+      >
+        <Button
+          link
+          to={`/edit/${id}`}
+          classes="btn btn-secondary"
+          body="Edit"
+          icon="fa fa-pencil"
+        />
+        <Button
+          classes="btn btn-danger"
+          handleClick={() => {
+            deleteCharacter(id);
+            fetchCharacters(setCharacterData, currentPage);
+          }}
+          icon="fa fa-trash-o"
+          body="Remove"
+        />
       </div>
     </td>
   );

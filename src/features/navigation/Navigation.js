@@ -1,30 +1,58 @@
 import React from "react";
 import { useState } from "react";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-import { NavigationButton } from "./NavigationButton";
+import { Button } from "../../components/Button";
+import { navigationRoutes } from "./constants";
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // is navbar open state
+  const history = useHistory();
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-primary mb-3">
-      <Link to="/" className="navbar-brand">
-        Sonalake Task
-      </Link>
-      <NavigationButton isOpen={isOpen} handleClick={setIsOpen} />
+    <nav
+      data-testid="navigation"
+      className="navbar navbar-expand-md navbar-dark bg-dark bg-primary mb-3 px-5"
+    >
+      <Button
+        link
+        to="/"
+        classes="navbar-brand font-weight-bold"
+        body="Sonalake Task"
+        icon="fa fa-code"
+      />
+      {/* Navbar button that handles navbar collapsing */}
+      <Button
+        handleClick={() => setIsOpen(!isOpen)}
+        classes={classNames("navbar-toggler", {
+          collapsed: !isOpen,
+        })}
+        nav
+        navExpanded={isOpen}
+      />
       <div
         className={classNames("collapse", "navbar-collapse", {
           show: isOpen,
         })}
       >
-        <ul className="navbar-nav">
-          <li className="nav-item active">
-            <Link to="/" className="nav-link">
-              List View
-              <span className="sr-only">(current)</span>
-            </Link>
-          </li>
+        <ul data-testid="navbarList" className="navbar-nav">
+          {/* creating static client side routes */}
+          {navigationRoutes.map(({ to, body }) => (
+            <li
+              className={classNames("nav-item", {
+                active: history.location.pathname === to,
+              })}
+              key={to}
+            >
+              <Button
+                link
+                to={to}
+                classes="nav-link"
+                handleClick={() => setIsOpen(false)}
+                body={body}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

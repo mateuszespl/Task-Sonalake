@@ -5,7 +5,8 @@ import { Routes } from "./Routes";
 
 export const App = () => {
   return (
-    <div className={classNames("container")}>
+    // main component for adding Redux / Themes etc.
+    <div className={classNames("app")}>
       <Routes />
     </div>
   );
