@@ -2,28 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Main } from "../features/main/Main";
-import { CharacterForm } from "../features/characterForm/CharacterForm";
-import { Navigation } from "../features/navigation/Navigation";
+import { Add } from "../views/Add";
+import { Edit } from "../views/Edit";
 
 export const Routes = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          {/* Main route */}
-          <Navigation />
-          <Main />
-        </Route>
-        <Route path="/add">
-          {/* Add character form route */}
-          <Navigation />
-          <CharacterForm />
-        </Route>
-        <Route path="/edit/:id">
-          {/* Edit character (filtered by his :id) form route */}
-          <Navigation />
-          <CharacterForm edit />
-        </Route>
+        <Route exact path="/" render={() => <Main />} />
+        <Route path="/add" render={() => <Add />} />
+        <Route path="/edit/:id" render={() => <Edit />} />
       </Switch>
     </Router>
   );
