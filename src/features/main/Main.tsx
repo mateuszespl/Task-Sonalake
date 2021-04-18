@@ -17,7 +17,7 @@ export const Main = () => {
 
   // page change handler, it fetches results from db based on current page
   useEffect(() => {
-    fetchCharacters(setCharacterData, currentPage);
+    fetchCharacters(setCharacterData, currentPage, false, false);
   }, [currentPage]);
   return (
     <main data-testid="main" className="main container">

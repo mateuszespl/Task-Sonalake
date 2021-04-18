@@ -1,7 +1,7 @@
 import React from "react";
 
 import { deleteCharacter, fetchCharacters } from "../../api/helpers";
-import { Button } from "./../../components/Button";
+import { Button } from "../../components/Button";
 
 export const TableRowActions = ({ id, setCharacterData, currentPage }) => {
   return (
