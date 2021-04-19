@@ -12,6 +12,17 @@ export const Button = ({
   icon, // font awesome icon
   nav, // is it navigation button
   navExpanded, // navigation button props to toggle expand
+}: {
+  submit?: any;
+  classes?: any;
+  handleClick?: any;
+  body?: any;
+  link?: any;
+  to?: any;
+  value?: any;
+  icon?: any;
+  nav?: any;
+  navExpanded?: any;
 }) => {
   return (
     <>

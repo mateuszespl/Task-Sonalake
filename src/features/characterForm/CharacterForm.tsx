@@ -13,7 +13,7 @@ import { Select } from "./Select";
 import { Radio } from "./Radio";
 import { Button } from "../../components/Button";
 
-export const CharacterForm = ({ edit }) => {
+export const CharacterForm = ({ edit }: { edit: any }) => {
   const [species, setSpecies] = useState([]); // species state, will contain data from /species api
   const [formIsValid, setFormIsValid] = useState(true); // form validation after submit state,
   const [formValue, setFormValue] = useState({
@@ -44,7 +44,7 @@ export const CharacterForm = ({ edit }) => {
   }, [edit, species.length, history.location.pathname]);
 
   // submit form handler with form validation, applied to button not the <form>
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     if (nameValue !== "" && speciesValue !== "" && genderValue !== "") {
       // form validation
       edit
@@ -70,7 +70,7 @@ export const CharacterForm = ({ edit }) => {
       <form data-testid="form" className="card px-5 py-3 needs-validation">
         {/* name */}
         <Input
-          handleChange={(e) =>
+          handleChange={(e: any) =>
             setFormValue({ ...formValue, nameValue: e.target.value })
           }
           value={nameValue}
@@ -103,7 +103,7 @@ export const CharacterForm = ({ edit }) => {
         />
         {/* homeworld */}
         <Input
-          handleChange={(e) =>
+          handleChange={(e: any) =>
             setFormValue({ ...formValue, homeworldValue: e.target.value })
           }
           value={homeworldValue}
@@ -121,7 +121,7 @@ export const CharacterForm = ({ edit }) => {
             <Button
               submit
               classes="btn btn-primary"
-              handleClick={(e) => handleClick(e)}
+              handleClick={(e: any) => handleClick(e)}
               body={edit ? "Submit changes" : "Add character"}
             />
           </div>

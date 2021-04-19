@@ -2,7 +2,12 @@
 // FETCH CHARACTERS HELPER FUNCTION
 //
 
-export const fetchCharacters = (setCharacterData, page, sort, sortParameter) =>
+export const fetchCharacters = (
+  setCharacterData: any,
+  page: any,
+  sort: any,
+  sortParameter: any
+) =>
   fetch(
     `http://localhost:3000/characters?_page=${page}&_limit=10${
       sort && `&_sort=${sortParameter}&_order=${sort}`
@@ -23,9 +28,9 @@ export const fetchCharacters = (setCharacterData, page, sort, sortParameter) =>
       };
     })
     .then(({ data, headers, url, ok }) => {
-      const headersArray = headers
+      const headersArray = (headers as any)
         .split(", ")
-        .map((arrItem) => arrItem.split("; ")[0]);
+        .map((arrItem: any) => arrItem.split("; ")[0]);
       data.then((data) =>
         setCharacterData({
           // extracted data is used to create object with data and pagination helpers
@@ -47,7 +52,11 @@ export const fetchCharacters = (setCharacterData, page, sort, sortParameter) =>
 // SEARCH/FILTER CHARACTERS HELPER FUNCTION
 //
 
-export const filterCharacters = (setSearchedData, searchValue, formFilter) => {
+export const filterCharacters = (
+  setSearchedData: any,
+  searchValue: any,
+  formFilter: any
+) => {
   fetch(
     `http://localhost:3000/characters?${
       formFilter ? "id" : "q"
@@ -77,7 +86,7 @@ export const filterCharacters = (setSearchedData, searchValue, formFilter) => {
 // FETCH ALL SPECIES HELPER FUNCTION
 //
 
-export const fetchSpecies = (setSpecies) =>
+export const fetchSpecies = (setSpecies: any) =>
   fetch(`http://localhost:3000/species`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -89,7 +98,7 @@ export const fetchSpecies = (setSpecies) =>
 // DELETE CHARACTER FROM DB HELPER FUNCTION
 //
 
-export const deleteCharacter = (id) =>
+export const deleteCharacter = (id: any) =>
   fetch(`http://localhost:3000/characters/${id}`, {
     method: "DELETE",
   });
@@ -103,6 +112,11 @@ export const addCharacter = ({
   speciesValue,
   genderValue,
   homeworldValue,
+}: {
+  nameValue: any;
+  speciesValue: any;
+  genderValue: any;
+  homeworldValue: any;
 }) => {
   fetch(`http://localhost:3000/characters`, {
     method: "POST",
@@ -126,6 +140,12 @@ export const editCharacter = ({
   speciesValue,
   genderValue,
   homeworldValue,
+}: {
+  id: any;
+  nameValue: any;
+  speciesValue: any;
+  genderValue: any;
+  homeworldValue: any;
 }) => {
   fetch(`http://localhost:3000/characters/${id}`, {
     method: "PUT",

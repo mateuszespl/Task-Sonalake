@@ -3,7 +3,15 @@ import React from "react";
 import { deleteCharacter, fetchCharacters } from "../../api/helpers";
 import { Button } from "../../components/Button";
 
-export const TableRowActions = ({ id, setCharacterData, currentPage }) => {
+export const TableRowActions = ({
+  id,
+  setCharacterData,
+  currentPage,
+}: {
+  id: any;
+  setCharacterData: any;
+  currentPage: any;
+}) => {
   return (
     <td data-testid="tableRowActions">
       <div
@@ -22,7 +30,7 @@ export const TableRowActions = ({ id, setCharacterData, currentPage }) => {
           classes="btn btn-danger"
           handleClick={() => {
             deleteCharacter(id);
-            fetchCharacters(setCharacterData, currentPage);
+            fetchCharacters(setCharacterData, currentPage, true, true);
           }}
           icon="fa fa-trash-o"
           body="Remove"

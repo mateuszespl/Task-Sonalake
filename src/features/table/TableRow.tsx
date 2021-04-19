@@ -2,7 +2,15 @@ import React from "react";
 
 import { TableRowActions } from "./TableRowActions";
 
-export const TableRow = ({ character, currentPage, setCharacterData }) => {
+export const TableRow = ({
+  character,
+  currentPage,
+  setCharacterData,
+}: {
+  character: any;
+  currentPage: any;
+  setCharacterData: any;
+}) => {
   const { id, name, species, gender, homeworld } = character;
   return (
     <tr data-testid="tableRow">

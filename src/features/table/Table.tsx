@@ -11,6 +11,13 @@ export const Table = ({
   searchedData,
   searchValue,
   setCharacterData,
+}: {
+  characterData: any;
+  setCurrentPage: any;
+  currentPage: any;
+  searchedData: any;
+  searchValue: any;
+  setCharacterData: any;
 }) => {
   const {
     data: characterDataArray, // actual character array
@@ -23,7 +30,6 @@ export const Table = ({
       <table className="table table-bordered table-hover">
         <TableHeader
           setCharacterData={setCharacterData}
-          characterDataArray={characterDataArray}
           currentPage={currentPage}
         />
         <TableBody

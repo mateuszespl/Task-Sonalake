@@ -7,7 +7,7 @@ export const Add = () => {
   return (
     <>
       <Navigation />
-      <CharacterForm />
+      <CharacterForm edit={true} />
     </>
   );
 };

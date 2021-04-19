@@ -2,18 +2,31 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 
 export const Input = ({
-  label, // inputs label body
-  classes, // className props
-  placeholder, // placeholder of input
-  value, // value of input
-  handleChange, // function for handling input changes
-  id, // input id
-  required, // is input required
-  radio, // is input type === radio, default === text
-  checked, // is input checked (for radio)
-  controlled, // is input controlled
-  invalidFeedback, // validation message
-  formIsValid, // is outer form valid after submittion
+  label,
+  classes,
+  placeholder,
+  value,
+  handleChange,
+  id,
+  required,
+  radio,
+  checked,
+  controlled,
+  invalidFeedback,
+  formIsValid,
+}: {
+  label?: any;
+  classes?: any;
+  placeholder?: any;
+  value?: any;
+  handleChange?: any;
+  id?: any;
+  required?: any;
+  radio?: any;
+  checked?: any;
+  controlled?: any;
+  invalidFeedback?: any;
+  formIsValid?: any;
 }) => {
   const [isInvalid, setIsInvalid] = useState(false); // validation state
 
@@ -46,7 +59,7 @@ export const Input = ({
         onChange={handleChange}
         onBlur={() => controlled && value === "" && setIsInvalid(true)}
       />
-      {isInvalid && <div class="invalid-feedback">{invalidFeedback}</div>}
+      {isInvalid && <div className="invalid-feedback">{invalidFeedback}</div>}
     </div>
   );
 };

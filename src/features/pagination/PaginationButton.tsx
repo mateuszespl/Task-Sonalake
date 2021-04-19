@@ -10,6 +10,13 @@ export const PaginationButton = ({
   setCurrentPage,
   currentPage,
   disabled,
+}: {
+  firstPage: any;
+  lastPage: any;
+  text: any;
+  setCurrentPage: any;
+  currentPage: any;
+  disabled: any;
 }) => {
   // function for changing current page
   const handleClick = () => {

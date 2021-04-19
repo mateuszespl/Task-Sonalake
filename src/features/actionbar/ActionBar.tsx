@@ -4,13 +4,21 @@ import { Input } from "../../components/Input";
 import { filterCharacters } from "../../api/helpers";
 import { Button } from "../../components/Button";
 
-export const ActionBar = ({ setSearchedData, searchValue, setSearchValue }) => {
+export const ActionBar = ({
+  setSearchedData,
+  searchValue,
+  setSearchValue,
+}: {
+  setSearchedData: any;
+  searchValue: any;
+  setSearchValue: any;
+}) => {
   // handling debounce task, timeout reset after each keystroke
   useEffect(() => {
-    let timer;
+    let timer: any;
     if (searchValue.length) {
       timer = setTimeout(() => {
-        filterCharacters(setSearchedData, searchValue);
+        filterCharacters(setSearchedData, searchValue, "");
       }, 200);
     }
     return () => clearTimeout(timer);
@@ -21,7 +29,7 @@ export const ActionBar = ({ setSearchedData, searchValue, setSearchValue }) => {
       <div className="row m-0 d-flex justify-content-between">
         <div className="col-8">
           <Input
-            handleChange={(e) => setSearchValue(e.target.value)}
+            handleChange={(e: any) => setSearchValue(e.target.value)}
             value={searchValue}
             id="searchInput"
             label="Search"

@@ -8,6 +8,11 @@ export const Radio = ({
   setFormValue,
   formValue,
   formIsValid,
+}: {
+  genderValue?: any;
+  setFormValue?: any;
+  formValue?: any;
+  formIsValid?: any;
 }) => {
   const [isInvalid, setIsInvalid] = useState(false);
   useEffect(() => {
@@ -26,7 +31,7 @@ export const Radio = ({
         <div data-testid="radioWrapper" className="col-md-10">
           <div className="form-check d-flex flex-reverse">
             <Input
-              handleChange={(e) =>
+              handleChange={(e: any) =>
                 setFormValue({ ...formValue, genderValue: e.target.value })
               }
               value="male"
@@ -43,7 +48,7 @@ export const Radio = ({
           </div>
           <div className="form-check d-flex flex-reverse">
             <Input
-              handleChange={(e) =>
+              handleChange={(e: any) =>
                 setFormValue({ ...formValue, genderValue: e.target.value })
               }
               value="female"
@@ -60,7 +65,7 @@ export const Radio = ({
           </div>
           <div className="form-check d-flex flex-reverse">
             <Input
-              handleChange={(e) =>
+              handleChange={(e: any) =>
                 setFormValue({ ...formValue, genderValue: e.target.value })
               }
               value="n/a"

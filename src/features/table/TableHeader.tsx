@@ -4,7 +4,13 @@ import { tableHeaderData } from "./constants";
 import { Button } from "../../components/Button";
 import { fetchCharacters } from "../../api/helpers";
 
-export const TableHeader = ({ setCharacterData, currentPage }) => {
+export const TableHeader = ({
+  setCharacterData,
+  currentPage,
+}: {
+  setCharacterData: any;
+  currentPage: any;
+}) => {
   const [sortOrder, setSortOrder] = useState("asc");
   return (
     <thead className="thead-light">

@@ -10,8 +10,15 @@ export const Pagination = ({
   firstPage,
   disabled,
   numberOfPages,
+}: {
+  currentPage: any;
+  setCurrentPage: any;
+  lastPage: any;
+  firstPage: any;
+  disabled: any;
+  numberOfPages: any;
 }) => {
-  const [buttonsData, setButtonsData] = useState([]); // buttonsData state
+  const [buttonsData, setButtonsData] = useState<any>([]); // buttonsData state
 
   // handling buttonsData changes, it creates new buttons for every 10 new db results
   useEffect(() => {
@@ -26,7 +33,7 @@ export const Pagination = ({
         data-testid="paginationList"
         className="pagination justify-content-end"
       >
-        {buttonsData.map((data) => (
+        {buttonsData.map((data: any) => (
           <PaginationButton
             disabled={disabled}
             lastPage={lastPage}

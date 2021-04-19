@@ -8,11 +8,17 @@ export const TableBody = ({
   characterDataArray,
   currentPage,
   setCharacterData,
+}: {
+  searchValue: any;
+  searchedData: any;
+  characterDataArray: any;
+  currentPage: any;
+  setCharacterData: any;
 }) => {
   return (
     <tbody data-testid="tableBody">
       {(searchValue.length ? searchedData : characterDataArray).map(
-        (character, id) =>
+        (character: any, id: any) =>
           // validation if prop character is an object for displaying either <TableRow/> or No results found message
           typeof character === "object" ? (
             <TableRow

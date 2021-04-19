@@ -7,6 +7,12 @@ export const Select = ({
   setFormValue,
   formValue,
   formIsValid,
+}: {
+  species: any;
+  speciesValue: any;
+  setFormValue: any;
+  formValue: any;
+  formIsValid: any;
 }) => {
   const [isInvalid, setIsInvalid] = useState(false);
   useEffect(() => {
