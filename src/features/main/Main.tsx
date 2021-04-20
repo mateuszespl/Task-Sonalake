@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ActionBar } from "../actionbar/ActionBar";
 import { Table } from "../table/Table";
 import { fetchCharacters } from "../../api/helpers";
+import charactersApiClient from "api/charactersApiClient";
 
 export const Main = () => {
   const [characterData, setCharacterData] = useState({
@@ -17,7 +18,9 @@ export const Main = () => {
 
   // page change handler, it fetches results from db based on current page
   useEffect(() => {
-    fetchCharacters(setCharacterData, currentPage, false, false);
+    charactersApiClient
+      .getCharacters()
+      .then((data: any) => setSearchedData(data));
   }, [currentPage]);
   return (
     <main data-testid="main" className="main container">
