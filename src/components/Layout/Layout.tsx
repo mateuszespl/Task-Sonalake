@@ -1,12 +1,13 @@
 import React from "react";
+import { Container } from "@material-ui/core";
 
 import { Navigation } from "./Navigation/Navigation";
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({ children }: { children: React.ReactChild }) => {
   return (
     <main>
       <Navigation />
-      {children}
+      <Container>{children}</Container>
     </main>
   );
 };
