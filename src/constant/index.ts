@@ -29,3 +29,35 @@ export const actionBar = {
   textField: { label: "Search character", name: "searchbar" },
   button: "Add new character",
 };
+
+export const charactersTableRow = {
+  editButton: "Edit",
+  deleteButton: "Delete",
+};
+
+export const charactersTableHeadCells = {
+  id: {
+    name: "ID",
+    align: undefined,
+  },
+  name: {
+    name: "Name",
+    align: "right",
+  },
+  species: {
+    name: "Species",
+    align: "right",
+  },
+  gender: {
+    name: "Gender",
+    align: "right",
+  },
+  homeworld: {
+    name: "Homeworld",
+    align: "right",
+  },
+  actions: {
+    name: "Actions",
+    align: "right",
+  },
+};
