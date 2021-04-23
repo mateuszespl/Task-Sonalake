@@ -25,7 +25,7 @@ export const Navigation = () => {
         onChange={handleChange}
         value={activeTabIndex}
       >
-        {routes.map(({ path, name }, id) => (
+        {Object.values(routes).map(({ path, name }, id) => (
           <Tab
             data-id={id}
             key={path}

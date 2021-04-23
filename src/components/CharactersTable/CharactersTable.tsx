@@ -1,4 +1,10 @@
-import { Paper, Table, TableBody, TableContainer } from "@material-ui/core";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableContainer,
+  TablePagination,
+} from "@material-ui/core";
 import React from "react";
 
 import { CharactersTableHead } from "./CharactersTableHead/CharactersTableHead";
@@ -38,6 +44,16 @@ export const CharactersTable = () => {
           ))}
         </TableBody>
       </Table>
+      <TablePagination
+        align="right"
+        rowsPerPageOptions={[5, 10, 25]}
+        component="div"
+        count={dummyData.length}
+        rowsPerPage={1}
+        page={1}
+        onChangePage={() => true}
+        onChangeRowsPerPage={() => true}
+      />
     </TableContainer>
   );
 };
