@@ -16,7 +16,9 @@ export const CharactersTableHead = () => {
     <TableHead>
       <TableRow>
         {Object.values(charactersTableHeadCells).map(({ name, align }) => (
-          <TableCell align={align as TableCellAlign}>{name}</TableCell>
+          <TableCell key={name} align={align as TableCellAlign}>
+            {name}
+          </TableCell>
         ))}
       </TableRow>
     </TableHead>

@@ -1,15 +1,8 @@
-import { Button, ButtonGroup, TableCell, TableRow } from "@material-ui/core";
+import { TableCell, TableRow } from "@material-ui/core";
 import React from "react";
 
-import { charactersTableRow } from "constant";
-
-type CharacterData = {
-  id: number;
-  name: string;
-  species: string;
-  gender: string;
-  homeworld: string;
-};
+import { CharacterData } from "types";
+import { CharactersTableRowActions } from "./CharactersTableRowActions/CharactersTableRowActions";
 
 export const CharactersTableRow = ({
   id,
@@ -27,12 +20,7 @@ export const CharactersTableRow = ({
       <TableCell align="right">{species}</TableCell>
       <TableCell align="right">{gender}</TableCell>
       <TableCell align="right">{homeworld}</TableCell>
-      <TableCell align="right">
-        <ButtonGroup variant="contained">
-          <Button>{charactersTableRow.editButton}</Button>
-          <Button>{charactersTableRow.deleteButton}</Button>
-        </ButtonGroup>
-      </TableCell>
+      <CharactersTableRowActions id={id} />
     </TableRow>
   );
 };

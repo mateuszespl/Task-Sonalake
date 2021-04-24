@@ -5,34 +5,34 @@ import {
   TableContainer,
   TablePagination,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import charactersApiClient from "api/charactersApiClient";
 import { CharactersTableHead } from "./CharactersTableHead/CharactersTableHead";
 import { CharactersTableRow } from "./CharactersTableRow/CharactersTableRow";
+import { CharactersDataArray } from "types";
 
 export const CharactersTable = () => {
-  const dummyData = [
-    {
-      id: 1,
-      name: "Luke Skywalker",
-      species: "Human",
-      gender: "male",
-      homeworld: "Tatooine",
-    },
-    {
-      id: 2,
-      name: "C-3PO",
-      species: "Droid",
-      gender: "n/a",
-      homeworld: "Tatooine",
-    },
-  ];
+  const [
+    charactersDataArr,
+    setCharactersDataArr,
+  ] = useState<CharactersDataArray>([]);
+
+  useEffect(() => {
+    if (charactersDataArr.length === 0) {
+      charactersApiClient
+        .getCharacters()
+        .then((charactersDataArr: CharactersDataArray) =>
+          setCharactersDataArr(charactersDataArr)
+        );
+    }
+  }, [charactersDataArr.length]);
   return (
     <TableContainer component={Paper}>
       <Table>
         <CharactersTableHead />
         <TableBody>
-          {dummyData.map(({ id, name, species, gender, homeworld }) => (
+          {charactersDataArr.map(({ id, name, species, gender, homeworld }) => (
             <CharactersTableRow
               key={name}
               id={id}
@@ -48,8 +48,8 @@ export const CharactersTable = () => {
         align="right"
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={dummyData.length}
-        rowsPerPage={1}
+        count={charactersDataArr.length}
+        rowsPerPage={5}
         page={1}
         onChangePage={() => true}
         onChangeRowsPerPage={() => true}

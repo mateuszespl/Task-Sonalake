@@ -38,26 +38,13 @@
     "Yoda's species",
     "Zabrak"
   ],
-  "characters": [{
-      "id": 1,
-      "name": "Luke Skywalker",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Tatooine"
-    },
+  "characters": [
     {
-      "id": 2,
-      "name": "C-3PO",
+      "name": "R2-D23",
       "species": "Droid",
       "gender": "n/a",
-      "homeworld": "Tatooine"
-    },
-    {
-      "id": 3,
-      "name": "R2-D2",
-      "species": "Droid",
-      "gender": "n/a",
-      "homeworld": "Naboo"
+      "homeworld": "Naboo",
+      "id": 3
     },
     {
       "id": 4,

@@ -7,7 +7,7 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {routes.map(({ routerPath, component, exact }) => (
+        {Object.values(routes).map(({ routerPath, component, exact }) => (
           <Route
             key={routerPath}
             exact={exact}
