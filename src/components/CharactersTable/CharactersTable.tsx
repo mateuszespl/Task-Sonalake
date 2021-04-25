@@ -5,28 +5,20 @@ import {
   TableContainer,
   TablePagination,
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import charactersApiClient from "api/charactersApiClient";
 import { CharactersTableHead } from "./CharactersTableHead/CharactersTableHead";
 import { CharactersTableRow } from "./CharactersTableRow/CharactersTableRow";
-import { CharactersDataArray } from "types";
+import { useCharactersTable } from "./useCharactersTable";
 
 export const CharactersTable = () => {
-  const [
+  const {
+    currentPage,
+    handlePageChange,
+    rowsPerPage,
+    handleRowsPerPageChange,
     charactersDataArr,
-    setCharactersDataArr,
-  ] = useState<CharactersDataArray>([]);
-
-  useEffect(() => {
-    if (charactersDataArr.length === 0) {
-      charactersApiClient
-        .getCharacters()
-        .then((charactersDataArr: CharactersDataArray) =>
-          setCharactersDataArr(charactersDataArr)
-        );
-    }
-  }, [charactersDataArr.length]);
+  } = useCharactersTable();
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -49,10 +41,10 @@ export const CharactersTable = () => {
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
         count={charactersDataArr.length}
-        rowsPerPage={5}
-        page={1}
-        onChangePage={() => true}
-        onChangeRowsPerPage={() => true}
+        rowsPerPage={rowsPerPage}
+        page={currentPage}
+        onChangePage={handlePageChange}
+        onChangeRowsPerPage={handleRowsPerPageChange}
       />
     </TableContainer>
   );
