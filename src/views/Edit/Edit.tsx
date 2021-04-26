@@ -1,12 +1,12 @@
 import React from "react";
 
-import { CharacterForm } from "../../features/characterForm/CharacterForm";
 import { Layout } from "components/Layout/Layout";
+import { CharacterForm } from "components/CharacterForm/CharacterForm";
 
 export const Edit = () => {
   return (
     <Layout>
-      <CharacterForm edit />
+      <CharacterForm />
     </Layout>
   );
 };

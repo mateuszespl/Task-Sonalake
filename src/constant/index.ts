@@ -1,4 +1,5 @@
 import { Add } from "views/Add/Add";
+import { Edit } from "views/Edit/Edit";
 import { Home } from "views/Home/Home";
 
 export const routes = {
@@ -20,7 +21,7 @@ export const routes = {
     name: "Edit character",
     path: "/edit",
     routerPath: "/edit/:id",
-    component: Add,
+    component: Edit,
     exact: false,
   },
 };
@@ -60,4 +61,27 @@ export const charactersTableHeadCells = {
     name: "Actions",
     align: "right",
   },
+};
+
+export const characterForm = {
+  addHeader: "Add new character",
+  editHeader: "Edit character",
+  addButton: "Submit new character",
+  editButton: "Submit changes",
+};
+
+export const characterFormSelect = {
+  name: "Specie",
+  label: "species",
+};
+
+export const characterFormRadio = {
+  gendersArr: ["Female", "Male", "N/A"],
+  name: "Gender",
+  label: "gender",
+};
+
+export const characterFormInput = {
+  nameLabel: "Name",
+  homeworldLabel: "Homeworld",
 };

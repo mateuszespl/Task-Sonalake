@@ -19,6 +19,9 @@ const charactersApiClient = {
       reject(`Couldn't delete Character with id:${id}`);
     });
   },
+  getCharacterByID({ id }: { id: number }): Promise<CharactersDataArray> {
+    return client.get("characters", { searchParams: { id } }).json();
+  },
 };
 
 export default charactersApiClient;
