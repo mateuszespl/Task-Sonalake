@@ -17,30 +17,33 @@ export const CharactersTable = () => {
     handlePageChange,
     rowsPerPage,
     handleRowsPerPageChange,
-    charactersDataArr,
+    currentPageCharactersDataArr,
+    allCharactersDataArr,
   } = useCharactersTable();
   return (
     <TableContainer component={Paper}>
       <Table>
         <CharactersTableHead />
         <TableBody>
-          {charactersDataArr.map(({ id, name, species, gender, homeworld }) => (
-            <CharactersTableRow
-              key={name}
-              id={id}
-              name={name}
-              species={species}
-              gender={gender}
-              homeworld={homeworld}
-            />
-          ))}
+          {currentPageCharactersDataArr.map(
+            ({ id, name, species, gender, homeworld }) => (
+              <CharactersTableRow
+                key={name}
+                id={id}
+                name={name}
+                species={species}
+                gender={gender}
+                homeworld={homeworld}
+              />
+            )
+          )}
         </TableBody>
       </Table>
       <TablePagination
         align="right"
         rowsPerPageOptions={[5, 10, 25]}
         component="div"
-        count={charactersDataArr.length}
+        count={allCharactersDataArr.length}
         rowsPerPage={rowsPerPage}
         page={currentPage}
         onChangePage={handlePageChange}

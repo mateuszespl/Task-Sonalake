@@ -75,13 +75,6 @@
       "homeworld": "Tatooine"
     },
     {
-      "id": 8,
-      "name": "Chewbacca",
-      "species": "Wookiee",
-      "gender": "male",
-      "homeworld": "Kashyyyk"
-    },
-    {
       "id": 9,
       "name": "Han Solo",
       "species": "Human",
@@ -108,13 +101,6 @@
       "species": "Human",
       "gender": "male",
       "homeworld": "Kamino"
-    },
-    {
-      "id": 13,
-      "name": "Lando Calrissian",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Socorro"
     },
     {
       "id": 14,

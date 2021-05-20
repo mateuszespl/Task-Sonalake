@@ -6,33 +6,58 @@ import charactersApiClient from "api/charactersApiClient";
 export const useCharactersTable = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [
-    charactersDataArr,
-    setCharactersDataArr,
-  ] = useState<CharactersDataArray>([]);
+  const [currentPageCharactersDataArr, setCurrentPageCharactersDataArr] =
+    useState<CharactersDataArray>([]);
+  const [allCharactersDataArr, setAllCharactersDataArr] =
+    useState<CharactersDataArray>([]);
 
   const handlePageChange = (e: any, newPage: number) => {
     //TODO fix event type
     setCurrentPage(newPage);
+
+    if (newPage === 0) {
+      setCurrentPageCharactersDataArr(
+        allCharactersDataArr.slice(0, rowsPerPage)
+      );
+    } else if (newPage === 1) {
+      setCurrentPageCharactersDataArr(
+        allCharactersDataArr.slice(rowsPerPage, 2 * rowsPerPage)
+      );
+    } else {
+      const arrStart =
+        currentPage > newPage
+          ? (newPage + 1) * rowsPerPage
+          : (currentPage + 1) * rowsPerPage;
+      const arrEnd =
+        newPage > currentPage
+          ? (newPage + 1) * rowsPerPage
+          : (currentPage + 1) * rowsPerPage;
+      setCurrentPageCharactersDataArr(
+        allCharactersDataArr.slice(arrStart, arrEnd)
+      );
+    }
   };
 
   const handleRowsPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentPage(0);
-    setRowsPerPage(Number(e.currentTarget.value));
+    setRowsPerPage(Number(e.target.value));
+    setCurrentPageCharactersDataArr(allCharactersDataArr.slice(0, rowsPerPage));
   };
 
   useEffect(() => {
-    if (charactersDataArr.length === 0) {
+    if (allCharactersDataArr.length === 0) {
       charactersApiClient
         .getCharacters()
-        .then((charactersDataArr: CharactersDataArray) =>
-          setCharactersDataArr(charactersDataArr)
-        );
+        .then((charactersDataArr: CharactersDataArray) => {
+          setAllCharactersDataArr(charactersDataArr);
+          setCurrentPageCharactersDataArr(charactersDataArr.slice(0, 5));
+        });
     }
-  }, [charactersDataArr.length]);
+  }, [allCharactersDataArr.length]);
 
   return {
-    charactersDataArr,
+    currentPageCharactersDataArr,
+    allCharactersDataArr,
     currentPage,
     handlePageChange,
     rowsPerPage,
