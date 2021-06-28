@@ -41,7 +41,9 @@ export const useCharactersTable = () => {
   const handleRowsPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentPage(0);
     setRowsPerPage(Number(e.target.value));
-    setCurrentPageCharactersDataArr(allCharactersDataArr.slice(0, rowsPerPage));
+    setCurrentPageCharactersDataArr(
+      allCharactersDataArr.slice(0, Number(e.target.value))
+    );
   };
 
   useEffect(() => {

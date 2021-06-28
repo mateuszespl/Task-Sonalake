@@ -8,7 +8,7 @@ import { CharactersTable } from "components/CharactersTable/CharactersTable";
 export const Home = () => {
   return (
     <Layout>
-      <Grid>
+      <Grid container direction="column">
         <ActionBar />
         <CharactersTable />
       </Grid>
