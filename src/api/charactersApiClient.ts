@@ -22,7 +22,11 @@ const charactersApiClient = {
   getCharacterByID({ id }: { id: number }): Promise<CharactersDataArray> {
     return client.get("characters", { searchParams: { id } }).json();
   },
-  getCharacterByName({ name: q }: { name: string }) {
+  getCharacterByName({
+    name: q,
+  }: {
+    name: string;
+  }): Promise<CharactersDataArray> {
     return client.get("characters", { searchParams: { q } }).json();
   },
 };

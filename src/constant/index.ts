@@ -24,11 +24,21 @@ export const routes = {
     component: Edit,
     exact: false,
   },
+  details: {
+    name: "Details",
+    path: "/details",
+    routerPath: "/details/:id",
+    component: Edit,
+    exact: false,
+  },
 };
 
 export const actionBar = {
-  textField: { label: "Search character", name: "searchbar" },
   button: "Add new character",
+};
+
+export const actionBarInput = {
+  textField: { label: "Search character", name: "searchbar" },
 };
 
 export const charactersTableRow = {
