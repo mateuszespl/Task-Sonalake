@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 
 import { Layout } from "components/Layout/Layout";
 import { ActionBar } from "components/ActionBar/ActionBar";
@@ -10,7 +10,9 @@ export const Home = () => {
     <Layout>
       <Grid container direction="column">
         <ActionBar />
-        <CharactersTable />
+        <Box mt={3}>
+          <CharactersTable />
+        </Box>
       </Grid>
     </Layout>
   );

@@ -1,5 +1,7 @@
 import React from "react";
 import { Container } from "@material-ui/core";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Navigation } from "./Navigation/Navigation";
 
@@ -11,6 +13,7 @@ export const Layout = ({ children }: { children: React.ReactChild }) => {
       <Container style={containerStyle} id="mainWrapper">
         {children}
       </Container>
+      <ToastContainer />
     </main>
   );
 };

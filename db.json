@@ -40,20 +40,6 @@
   ],
   "characters": [
     {
-      "name": "R2-D23",
-      "species": "Droid",
-      "gender": "n/a",
-      "homeworld": "Naboo",
-      "id": 3
-    },
-    {
-      "id": 4,
-      "name": "Darth Vader",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Tatooine"
-    },
-    {
       "id": 5,
       "name": "Leia Organa",
       "species": "Human",
@@ -75,20 +61,6 @@
       "homeworld": "Tatooine"
     },
     {
-      "id": 9,
-      "name": "Han Solo",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Corellia"
-    },
-    {
-      "id": 10,
-      "name": "Yoda",
-      "species": "Yoda's species",
-      "gender": "male",
-      "homeworld": ""
-    },
-    {
       "id": 11,
       "name": "Sheev Palpatine",
       "species": "Human",
@@ -96,22 +68,8 @@
       "homeworld": "Naboo"
     },
     {
-      "id": 12,
-      "name": "Boba Fett",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": "Kamino"
-    },
-    {
       "id": 14,
       "name": "Qui-Gon Jinn",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": ""
-    },
-    {
-      "id": 15,
-      "name": "Finn",
       "species": "Human",
       "gender": "male",
       "homeworld": ""
