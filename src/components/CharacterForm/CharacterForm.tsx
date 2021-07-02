@@ -1,6 +1,11 @@
 import React from "react";
 import { Button, Card, CardContent, CardHeader, Grid } from "@material-ui/core";
-import { characterForm, characterFormInput } from "constant";
+import {
+  characterForm,
+  characterFormInput,
+  characterFormRadio,
+  characterFormSelect,
+} from "constant";
 
 import { useCharacterForm } from "./useCharacterForm";
 import { CharacterFormSelect } from "./CharacterFormSelect/CharacterFormSelect";
@@ -36,9 +41,13 @@ export const CharacterForm = ({
                   />
                   <CharacterFormSelect
                     control={control}
+                    label={characterFormSelect.label}
                     speciesArr={speciesArr}
                   />
-                  <CharacterFormRadio control={control} />
+                  <CharacterFormRadio
+                    label={characterFormRadio.label}
+                    control={control}
+                  />
                   <CharacterFormInput
                     label={characterFormInput.homeworldLabel}
                     control={control}

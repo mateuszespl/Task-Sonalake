@@ -6,23 +6,26 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import React from "react";
-import { Control, Controller, FieldValues } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 
 import { characterFormRadio } from "constant";
+import { FormData, LabelTypes } from "types";
 
 export const CharacterFormRadio = ({
   control,
+  label,
 }: {
-  control: Control<FieldValues>;
+  control: Control<FormData>;
+  label: LabelTypes;
 }) => {
   return (
     <Controller
-      name={characterFormRadio.label}
+      name={label}
       control={control}
       render={({ field: { onChange, value } }) => (
         <FormControl component="fieldset">
           <FormLabel component="legend">{characterFormRadio.name}</FormLabel>
-          <RadioGroup onChange={onChange} aria-label={characterFormRadio.label}>
+          <RadioGroup onChange={onChange} aria-label={label}>
             {characterFormRadio.gendersArr.map((gender) => (
               <FormControlLabel
                 value={gender.toLowerCase()}

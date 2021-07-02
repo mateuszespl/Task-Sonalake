@@ -1,3 +1,4 @@
+import { FormData } from "types/index";
 import ky from "ky";
 
 import { CharactersDataArray } from "types";
@@ -41,6 +42,27 @@ const charactersApiClient = {
     name: string;
   }): Promise<CharactersDataArray> {
     return client.get("characters", { searchParams: { q } }).json();
+  },
+  editCharacter({
+    gender,
+    homeworld,
+    name,
+    species,
+    id,
+  }: FormData): Promise<{ message: string; type: TypeOptions }> {
+    client.put(`characters/${id}`, {
+      json: { gender, homeworld, name, species, id },
+    });
+    return new Promise((resolve, reject) => {
+      resolve({
+        message: `${name} with id:${id} has been edited.`,
+        type: "success",
+      });
+      reject({
+        message: `Couldn't edit ${name} with id:${id}.`,
+        type: "error",
+      });
+    });
   },
 };
 

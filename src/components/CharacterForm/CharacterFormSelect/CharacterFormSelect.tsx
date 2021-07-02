@@ -1,32 +1,33 @@
 import React from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
-import { FieldValues, Control, Controller } from "react-hook-form";
+import { Control, Controller } from "react-hook-form";
 
 import { characterFormSelect } from "constant";
+import { FormData, LabelTypes } from "types";
 
 export const CharacterFormSelect = ({
   speciesArr,
   control,
+  label,
 }: {
   speciesArr: string[];
-  control: Control<FieldValues>;
+  control: Control<FormData>;
+  label: LabelTypes;
 }) => {
   return (
     <Controller
-      name={characterFormSelect.label}
+      name={label}
       control={control}
       render={({ field: { onChange, value } }) => (
         <FormControl variant="outlined">
-          <InputLabel id={characterFormSelect.label}>
-            {characterFormSelect.name}
-          </InputLabel>
+          <InputLabel id={label}>{characterFormSelect.name}</InputLabel>
           {speciesArr.length > 0 && (
             <Select
               value={value}
               onChange={onChange}
-              labelId={characterFormSelect.label}
-              id={characterFormSelect.label}
-              label={characterFormSelect.label}
+              labelId={label}
+              id={label}
+              label={label}
             >
               {speciesArr.map((specie) => (
                 <MenuItem

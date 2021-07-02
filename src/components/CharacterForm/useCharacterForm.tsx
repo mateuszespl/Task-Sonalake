@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 
 import charactersApiClient from "api/charactersApiClient";
+import { FormData } from "types";
 
 export const useCharacterForm = ({
   isAddCharacterFormVariant,
@@ -11,7 +13,9 @@ export const useCharacterForm = ({
 }) => {
   const [speciesArr, setSpeciesArr] = useState<string[]>([]);
 
-  const { handleSubmit, register, control, setValue } = useForm();
+  const { handleSubmit, register, control, setValue } = useForm({
+    defaultValues: { name: "", homeworld: "", gender: "", species: "" },
+  });
   const {
     location: { pathname },
   } = useHistory();
@@ -26,6 +30,7 @@ export const useCharacterForm = ({
           setValue("homeworld", homeworld);
           setValue("gender", gender);
           setValue("species", species);
+          console.log(characterData[0]);
         });
       }
     }
@@ -36,10 +41,18 @@ export const useCharacterForm = ({
         .then((species) => setSpeciesArr(species));
   }, [pathname, setValue, isAddCharacterFormVariant, speciesArr.length]);
 
-  const handleFormSubmit = (data: unknown) => {
-    console.log(data);
-    if (isAddCharacterFormVariant) {
-      // add new character
+  const handleFormSubmit = ({ name, gender, homeworld, species }: FormData) => {
+    if (!isAddCharacterFormVariant) {
+      const id = Number(pathname.split("/")[pathname.split("/").length - 1]);
+      charactersApiClient
+        .editCharacter({
+          name,
+          gender,
+          homeworld,
+          species,
+          id,
+        })
+        .then(({ message, type }) => toast(message, { type }));
     } else {
       // edit character
     }

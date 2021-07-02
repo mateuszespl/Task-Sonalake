@@ -82,16 +82,16 @@ export const characterForm = {
 
 export const characterFormSelect = {
   name: "Specie",
-  label: "species",
+  label: "species" as "species",
 };
 
 export const characterFormRadio = {
   gendersArr: ["Female", "Male", "N/A"],
   name: "Gender",
-  label: "gender",
+  label: "gender" as "gender",
 };
 
 export const characterFormInput = {
-  nameLabel: "Name",
-  homeworldLabel: "Homeworld",
+  nameLabel: "Name" as "name",
+  homeworldLabel: "Homeworld" as "homeworld",
 };

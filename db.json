@@ -40,18 +40,18 @@
   ],
   "characters": [
     {
-      "id": 5,
-      "name": "Leia Organa",
+      "gender": "male",
+      "homeworld": "Alderaan",
+      "name": "dsss",
       "species": "Human",
-      "gender": "female",
-      "homeworld": "Alderaan"
+      "id": 5
     },
     {
-      "id": 6,
-      "name": "Obi-Wan Kenobi",
-      "species": "Human",
       "gender": "male",
-      "homeworld": "Stewjon"
+      "homeworld": "Stewjon",
+      "name": "Obi-Wan Kenobi",
+      "species": "Dug",
+      "id": 6
     },
     {
       "id": 7,
