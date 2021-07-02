@@ -68,20 +68,6 @@
       "homeworld": "Naboo"
     },
     {
-      "id": 14,
-      "name": "Qui-Gon Jinn",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": ""
-    },
-    {
-      "id": 16,
-      "name": "Rey",
-      "species": "Human",
-      "gender": "female",
-      "homeworld": ""
-    },
-    {
       "id": 17,
       "name": "Poe Dameron",
       "species": "Human",

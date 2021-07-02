@@ -6,13 +6,19 @@ import { toast } from "react-toastify";
 import { charactersTableRow } from "constant";
 import charactersApiClient from "api/charactersApiClient";
 
-export const CharactersTableRowActions = ({ id }: { id: number }) => {
+export const CharactersTableRowActions = ({
+  id,
+  name,
+}: {
+  id: number;
+  name: string;
+}) => {
   const history = useHistory();
 
   const handleDelete = () => {
     charactersApiClient
-      .deleteCharacter({ id })
-      .then((message) => toast(message, { type: "success" }));
+      .deleteCharacter({ id, name })
+      .then(({ message, type }) => toast(message, { type }));
   };
 
   const handleEdit = () => {

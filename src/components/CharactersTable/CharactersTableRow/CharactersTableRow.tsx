@@ -20,7 +20,7 @@ export const CharactersTableRow = ({
       <TableCell align="right">{species}</TableCell>
       <TableCell align="right">{gender}</TableCell>
       <TableCell align="right">{homeworld}</TableCell>
-      <CharactersTableRowActions id={id} />
+      <CharactersTableRowActions id={id} name={name} />
     </TableRow>
   );
 };

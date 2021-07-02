@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Navigation } from "./Navigation/Navigation";
 
 export const Layout = ({ children }: { children: React.ReactChild }) => {
+  const toastPosition = "bottom-left";
   const containerStyle = { padding: "30px" };
   return (
     <main id="main">
@@ -13,7 +14,7 @@ export const Layout = ({ children }: { children: React.ReactChild }) => {
       <Container style={containerStyle} id="mainWrapper">
         {children}
       </Container>
-      <ToastContainer />
+      <ToastContainer position={toastPosition} />
     </main>
   );
 };
